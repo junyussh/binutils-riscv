@@ -105,6 +105,7 @@ select_target(Input_file* input_file, off_t offset,
   for (Target_selector* p = target_selectors; p != NULL; p = p->next())
     {
       int pmach = p->machine();
+      printf("pmach: %d, machine: %d, size: %d, is_big_endian: %d\n", pmach, machine, size, is_big_endian);
       if ((pmach == machine || pmach == elfcpp::EM_NONE)
 	  && p->get_size() == size
 	  && (p->is_big_endian() ? is_big_endian : !is_big_endian))
